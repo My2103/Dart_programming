@@ -1,0 +1,24 @@
+void main() {
+  // Declare the two number
+  int number1 = 5;
+  int number2 = 2;
+  
+  //Declare the operator
+  var operator = '+';
+  
+  int? result;
+  switch (operator) {
+    case '+':
+      result = number1 + number2;
+    case '-':
+      result = number1 - number2;
+    case '*':
+      result = number1 * number2;
+    case '/':
+      result = number1 ~/ number2;
+  }
+  
+  print("The result is $result");
+  
+  
+}
