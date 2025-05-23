@@ -1,0 +1,69 @@
+// Simple banking system
+void main() {
+  // Khai bao so du tai khoan ban dau la 15000000
+  double accountBalance = 15000000;
+  
+  // Danh sach mo phong lua chon cua nguoi dung
+  List<int> simulatedChoices = [1, 2, 3, 2, 0];
+  List<double> amounts = [2000000, 5000000, 0, 20000000];
+  
+  int index = 0;
+  int choice;
+  
+  print("--- Banking simulation starts ---");
+  
+  do {
+    print("\nChoose the action: ");
+    print("0. Exit");
+    print("1. Deposit");
+    print("2. Withdraw");
+    print("3. Check balance");
+    
+    choice = simulatedChoices[index];
+    
+    switch (choice) {
+      case 1: 
+        double depositAmount = amounts[index];
+        accountBalance = deposit(accountBalance, depositAmount);
+        checkBalance (accountBalance);
+        break;
+      case 2:
+        double withdrawAmount = amounts[index];
+        accountBalance = withdraw(accountBalance, withdrawAmount);
+        checkBalance (accountBalance);
+        break;
+      case 3:
+        checkBalance (accountBalance);
+        break;
+      default:
+        print("Invalid choice.");  
+    }
+    
+    index++;
+    
+  } while (choice != 0 && index < simulatedChoices.length);
+  
+  print("--- Banking simulation ends ---");
+  
+}
+
+double deposit (double accountBalance, double depositAmount) {
+  accountBalance += depositAmount;
+  print("→ Deposited: $depositAmount");
+  return accountBalance;
+}// Ham gui tien
+
+double withdraw (double accountBalance, double withdrawAmount) {
+  if (withdrawAmount > accountBalance) {
+    print("Your balance is insufficent");
+  } else {
+    accountBalance -= withdrawAmount;
+    print("→ Withdrew: $withdrawAmount");
+  }
+  return accountBalance;
+}// Ham rut tien
+
+void checkBalance (double accountBalance) {
+  print("→ Current balance: $accountBalance");
+}
+
