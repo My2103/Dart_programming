@@ -1,0 +1,122 @@
+// Personal Collection Manager
+void main() {
+  List<Map<String, dynamic>> myCollection = [
+  {
+    'type': 'Book',
+    'title': 'Dac Nhan Tam',
+    'author': 'Dale Carnegie',
+    'genre': ['Sach ky nang song', 'Phat trien ban than'],
+    'year': 1936,
+    'isRead': true,
+  },
+  {
+    'type': 'Book',
+    'title': 'Heidi',
+    'author': 'Johanna Spyri',
+    'genre': ['Van hoc thieu nhi'],
+    'year': 1880,
+    'isRead': false,
+  },
+  {
+    'type': 'Movie',
+    'title': 'Inception',
+    'director': 'Christopher Nolan',
+    'genre': ['Khoa hoc vien tuong', 'Giat gan'],
+    'year': 2010,
+    'isWatched': true,
+  },  
+  {
+    'type': 'Music Album',
+    'title': 'Divide',
+    'artist': 'Ed Sheeran',
+    'genre': ['Pop'],
+    'year': 2017,
+    'numberOfSongs': 12,
+  },  
+  ];
+  
+  print("--- BỘ SƯU TẬP CÁ NHÂN CỦA TÔI ---");
+  
+  // Duyet va in ra tat ca cac vat pham trong bo suu tap
+  for (var item in myCollection) {
+    String type = item['type'];
+    
+    switch(type) {
+      case 'Book':
+        print("Type: $type");
+        print("Title: ${item['title']}");
+        print("Author: ${item['author']}");
+        print("Genre: ${item['genre'].join(', ')}");
+        print("Year: ${item['year']}");
+        print("Is read: ${item['isRead'] ? 'Yes' : 'No'}");
+        
+      case 'Movie':
+        print("Type: $type");
+        print("Title: ${item['title']}");
+        print("Director: ${item['director']}");
+        print("Genre: ${item['genre'].join(', ')}");
+        print("Year: ${item['year']}");
+        print("Is watched: ${item['isWatched'] ? 'Yes' : 'No'}");
+        
+      case 'Music Album':
+        print("Type: $type");
+        print("Title: ${item['title']}");
+        print("Artist: ${item['Artist']}");
+        print("Genre: ${item['genre'].join(', ')}");
+        print("Year: ${item['year']}");
+        print("Number of Songs: ${item['numberOfSongs']}");
+    }
+    print("--------------------");
+  }
+  
+  // Tim kiem vat pham theo title
+  String searchTitle = 'Dac Nhan Tam';
+  bool found = false;
+  
+  for (var item in myCollection) {
+    String title = item['title'];
+    if (title == searchTitle) {
+      found = true;
+      break;
+    }
+  }
+  if(found == true) {
+    print("I found it.");
+  } else {
+    print("I cannot found it.");
+  }
+  
+  // Loc ra cuon sach chua doc
+  for (var item in myCollection) {
+    String type = item['type'];
+    if (type == 'Book') {
+      bool isRead = item['isRead'];
+      if (isRead == false) {
+        print("There is one book have not read.");
+      } else {
+        print("All of books are read.");
+      }
+    }
+  }
+  
+  // Dem so luong vat pham theo tung the loai
+  int bookCount = 0;
+  int movieCount = 0;
+  int musicAlbumCount = 0;
+  
+  for (var item in myCollection) {
+    String type = item['type'];
+    if (type == 'Book') {
+      bookCount++;
+    } else if (type == 'Movie') {
+      movieCount++;
+    } else if (type == 'Music Album') {
+      musicAlbumCount++;
+    }
+  }
+  
+  print("The number of book: $bookCount");
+  print("The number of movie: $movieCount");
+  print("The number of music album: $musicAlbumCount");
+}
+
