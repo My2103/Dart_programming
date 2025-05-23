@@ -1,0 +1,91 @@
+// Simple Order System
+void main() {
+  List<Map<String, dynamic>> cart = [
+    {
+      'product_name': 'Áo thun Cotton',
+      'price': 80.0,
+      'quantity': 2
+    },
+    {
+      'product_name': 'Quần Jeans',
+      'price': 250.0,
+      'quantity': 1
+    },
+    {
+      'product_name': 'Giày Sneaker',
+      'price': 450.0,
+      'quantity': 1
+    },
+    {
+      'product_name': 'Mũ lưỡi trai',
+      'price': 50.0,
+      'quantity': 3
+    },
+    {
+      'product_name': 'Túi xách da',
+      'price': 320.0,
+      'quantity': 1
+    },
+  ];
+  
+  print("----------GIO HANG----------");
+  int totalProduct = 0;
+  double totalPrice = 0;
+  for (var product in cart) {
+    String name = product['product_name'];
+    double price = product['price'];
+    int quantity = product['quantity'];
+    
+    print("Ten san pham: $name");
+    print("Gia: $price");
+    print("So luong: $quantity");
+    
+    print("--------------------");
+    
+    totalProduct += quantity;
+    totalPrice += (quantity * price);
+  }
+  // Tong so luong san pham trong gio hang
+  print("Tong so luong san pham: $totalProduct");
+  
+  // Tong tien cuar gio hang
+  print("Tong tien: $totalPrice");
+  
+  print("");
+  // Them mot mat hang moi vao gio hang
+  print("-------THEM MAT HANG-------");
+  Map<String, dynamic> newItem = {
+    'product_name': 'Sách lập trình Dart',
+    'price': 150000.0,
+    'quantity': 1
+  };
+  
+  cart.add(newItem);
+  for (var product in cart) {
+    String name = product['product_name'];
+    double price = product['price'];
+    int quantity = product['quantity'];
+    
+    print("Ten san pham: $name");
+    print("Gia: $price");
+    print("So luong: $quantity");
+    
+    print("--------------------"); 
+  }
+  
+  print("\n-------XOA MOT MAT HANG-------");
+  String itemToRemove = 'Quần Jeans';
+  
+  cart.removeWhere((item) => item['product_name'] == itemToRemove);
+  for (var product in cart) {
+    String name = product['product_name'];
+    double price = product['price'];
+    int quantity = product['quantity'];
+    
+    print("Ten san pham: $name");
+    print("Gia: $price");
+    print("So luong: $quantity");
+    
+    print("--------------------"); 
+  }
+}
