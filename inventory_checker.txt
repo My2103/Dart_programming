@@ -1,0 +1,89 @@
+void main() {
+  print("The initialize quantity of items: ");
+  // Declare item "T-shirt"
+  String item1Name = 'T-shirt';
+  double item1Quantity = 10;
+  double item1Price = 150.0;
+  double item1TotalValue = item1Quantity * item1Price;
+  
+  // Print the information of item T-shirt
+  print("- Item name: $item1Name");
+  print("- Quantity: $item1Quantity");
+  print("- Price: $item1Price");
+  print("- Total Value: $item1TotalValue");
+  
+  print(" ");
+  
+  // Declare item "pants"
+  String item2Name = 'Pants';
+  double item2Quantity = 10;
+  double item2Price = 120.0;
+  double item2TotalValue = item2Quantity * item2Price;
+  
+  // Print the information of item T-shirt
+  print("- Item name: $item2Name");
+  print("- Quantity: $item2Quantity");
+  print("- Price: $item2Price");
+  print("- Total Value: $item2TotalValue");
+  
+  print(" ");
+  
+  // Declare item "skirt"
+  String item3Name = 'Skirt';
+  double item3Quantity = 10;
+  double item3Price = 180.0;
+  double item3TotalValue = item3Quantity * item3Price;
+  
+  // Print the information of item T-shirt
+  print("- Item name: $item3Name");
+  print("- Quantity: $item3Quantity");
+  print("- Price: $item3Price");
+  print("- Total Value: $item3TotalValue");
+  
+  print(" ");
+  
+  // The quantity of item after sell
+  print("The quantity of items after sell: ");
+  
+  // Print the information of item T-shirt
+  print("- Item name: $item1Name");
+  
+  item1Quantity -= 2;
+  print("- Quantity: $item1Quantity");
+  
+  
+  print("- Price: $item1Price");
+  
+  item1TotalValue = item1Quantity * item1Price;
+  print("- Total Value: $item1TotalValue");
+  
+  print(" ");
+  
+  // Print the information of item Pants
+  print("- Item name: $item2Name");
+  
+  item2Quantity -= 3;
+  print("- Quantity: $item2Quantity");
+  
+  
+  print("- Price: $item2Price");
+  
+  item2TotalValue = item2Quantity * item2Price;
+  print("- Total Value: $item2TotalValue");
+  
+  print(" ");
+  
+  // Print the information of item Skirt
+  print("- Item name: $item3Name");
+  
+  item3Quantity -= 1;
+  print("- Quantity: $item3Quantity");
+  
+  
+  print("- Price: $item3Price");
+  
+  item3TotalValue = item3Quantity * item3Price;
+  print("- Total Value: $item3TotalValue");
+  
+  print(" ");
+}
