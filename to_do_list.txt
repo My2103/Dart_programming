@@ -1,0 +1,74 @@
+// To do list
+void main() {
+  List<Map<String, dynamic>> taskLists = [
+    {
+      'name': 'Do homework',
+      'isCompleted': true,
+    },
+    {
+      'name': 'Do housework',
+      'isCompleted': true,
+    },
+    {
+      'name': 'Practice piano',
+      'isCompleted': false,
+    },
+    {
+      'name': 'Write a book review',
+      'isCompleted': false,
+    }
+  ];
+  
+  viewTask (taskLists);
+  
+  print("\nAdd task: ");
+  addTask({}, taskLists);
+  viewTask(taskLists);
+  
+  print("\nMark task as completed: ");
+  markTaskAsCompleted('Practice piano', taskLists);
+  viewTask(taskLists);
+  
+  print("\nRemove task: ");
+  removeTask("Do housework", taskLists);
+  viewTask(taskLists);
+}// end main
+
+void addTask (var newTask, List<Map<String, dynamic>> taskLists) {
+  newTask = {
+              'name': 'Workout',
+              'isCompleted': false,
+            };
+  taskLists.add(newTask);
+}
+
+void viewTask (List<Map<String, dynamic>> taskLists) {
+  print("-----TO DO LIST-----");
+  for (var task in taskLists) {
+    String name = task['name'];
+    // bool isComplete = task['isCompleted'];
+    
+    print("Task: $name");
+    print("Completed: ${task['isCompleted'] ? 'Yes' : 'No'}");
+    print("");
+  }
+  print("-----END LIST-----");
+}
+
+void markTaskAsCompleted (String taskName, List<Map<String, dynamic>> taskLists) {
+  taskName = 'Practice piano';
+  for (var task in taskLists) {
+    if (task['name'] == taskName) {
+      task['isCompleted'] = true;
+      print("✅ Task '$taskName' has been marked as completed.");
+      return;
+    }
+  }
+  print("❌ Task '$taskName' not found.");
+}
+
+void removeTask (String taskRemoved, List<Map<String, dynamic>> taskLists) {
+  taskRemoved = 'Do housework';
+  taskLists.removeWhere((task) => task['name'] == taskRemoved);
+  print("🗑️ Task '$taskRemoved' has been removed (if it existed).");
+}
