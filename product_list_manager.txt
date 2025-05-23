@@ -1,0 +1,83 @@
+// Product List Manager
+void main() {
+  List<Map<String, dynamic>> products = [
+    {
+      'name': 'Laptop Gaming XYZ',
+      'price': 1250.00,
+      'quantity': 5,
+      'description': 'Laptop chuyen game cau hinh manh me'
+    },
+    {
+      'name': 'Ban phim co RGB',
+      'price': 85.50,
+      'quantity': 15,
+      'description': 'Ban phim co voi den nen RGB tuy chinh'
+    },
+    {
+      'name': 'Chuột không dây Logitech',
+      'price': 35.00,
+      'quantity': 30,
+      'description': 'Chuột không dây nhỏ gọn, độ chính xác cao.'
+    },
+    {
+      'name': 'Màn hình cong 27 inch',
+      'price': 299.99,
+      'quantity': 8,
+      'description': 'Màn hình cong IPS, tần số quét 144Hz.'
+    }
+  ];
+  
+  // 1. In ra tat ca san pham va tong gia tri kho hang
+  print("---DANH SACH CAC SAN PHAM TRONG KHO---");
+  double totalPrice = 0;
+  for (var product in products) {
+    String name = product['name'];
+    double price = product['price'];
+    int quantity = product['quantity'];
+    String description = product['description'];
+    
+    print("Ten: $name");
+    print("Gia: $price");
+    print("So luong: $quantity");
+    print("Mo ta: $description");
+    
+    print("--------------------");
+      
+    totalPrice += price;
+  }
+  print("Tong gia tri cua kho hang la $totalPrice");
+  print("");
+  
+  // 4. Tim kiem san pham theo ten
+  String foundProduct = 'Màn hình cong 27 inch';
+  print("I am looking for $foundProduct");
+  for (var product in products) {
+    String name = product['name'];
+    
+    if (name == foundProduct) {
+      print("Here is it: $name");
+    } 
+  }
+  
+  // 5. Cap nhat so luong cua mot san pham
+  print("");
+  print("---SAN PHAM DA BAN---");
+  String sold = 'Ban phim co RGB';
+  for (var product in products) {
+    String name = product['name'];
+    double price = product['price'];
+    int quantity = product['quantity'];
+    String description = product['description'];
+    
+    if (name == sold) {
+      quantity -= 1;
+      
+      print("Ten: $name");
+      print("Gia: $price");
+      print("So luong: $quantity");
+      print("Mo ta: $description");
+    
+      print("--------------------");
+    }
+  }
+}
